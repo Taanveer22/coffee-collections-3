@@ -14,8 +14,8 @@ const Card = ({ coffeeItem }) => {
           </h2>
           <p>{description}</p>
           <div className="card-actions justify-between">
-            <div className="badge badge-outline">{rating}</div>
-            <div className="badge badge-outline">{popularity}</div>
+            <div className="badge badge-outline">Rating : {rating}</div>
+            <div className="badge badge-outline">Popularity : {popularity}</div>
           </div>
         </div>
       </div>
