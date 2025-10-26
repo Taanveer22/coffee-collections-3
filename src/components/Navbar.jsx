@@ -30,10 +30,10 @@ const Navbar = () => {
                 <NavLink to="/">Homepage</NavLink>
               </li>
               <li>
-                <NavLink to="/coffees-page">Coffeespage</NavLink>
+                <NavLink to="/coffeesPage">Coffeespage</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard-page">Dashboardpage</NavLink>
+                <NavLink to="/dashboardPage">Dashboardpage</NavLink>
               </li>
             </ul>
           </div>
@@ -45,10 +45,10 @@ const Navbar = () => {
               <NavLink to="/">Homepage</NavLink>
             </li>
             <li>
-              <NavLink to="/coffees-page">Coffeespage</NavLink>
+              <NavLink to="/coffeesPage">Coffeespage</NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard-page">Dashboardpage</NavLink>
+              <NavLink to="/dashboardPage">Dashboardpage</NavLink>
             </li>
           </ul>
         </div>

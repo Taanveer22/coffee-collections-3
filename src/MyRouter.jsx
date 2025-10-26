@@ -4,6 +4,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import CoffeesPage from "./pages/CoffeesPage";
 import DashboardPage from "./pages/DashboardPage";
+import AllCards from "./components/AllCards";
 const MyRouter = createBrowserRouter([
   {
     path: "/",
@@ -13,13 +14,20 @@ const MyRouter = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
+        loader: () => fetch("/categories.json"),
+        children: [
+          {
+            path: "/cardsCategory/:categoryType",
+            element: <AllCards></AllCards>,
+          },
+        ],
       },
       {
-        path: "/coffees-page",
+        path: "/coffeesPage",
         element: <CoffeesPage></CoffeesPage>,
       },
       {
-        path: "/dashboard-page",
+        path: "/dashboardPage",
         element: <DashboardPage></DashboardPage>,
       },
     ],
