@@ -37,6 +37,7 @@ const MyRouter = createBrowserRouter([
       {
         path: "/CardDetail/:cardId",
         element: <CardDetail></CardDetail>,
+        loader: () => fetch("/coffees.json"),
       },
       {
         path: "/dashboardPage",

@@ -10,7 +10,7 @@ const AllCards = () => {
   const [coffees, setCoffees] = useState([]);
   // console.log(coffees);
   const navigate = useNavigate();
-  console.log(navigate);
+  // console.log(navigate);
 
   useEffect(() => {
     if (categoryType) {
