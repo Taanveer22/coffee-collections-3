@@ -9,7 +9,11 @@ const CategoriesTab = ({ categoryData }) => {
           <NavLink
             to={`/cardsCategory/${categoryItem.category}`}
             key={categoryItem.id}
-            className={"tab [--tab-bg:orange] text-lg font-medium"}
+            className={({ isActive }) =>
+              isActive
+                ? "tab tab-active [--tab-bg:orange] text-lg font-medium"
+                : "tab text-lg font-medium"
+            }
           >
             {categoryItem.category}
           </NavLink>
