@@ -10,10 +10,14 @@ const AllCards = () => {
   const [coffees, setCoffees] = useState([]);
   // console.log(coffees);
   useEffect(() => {
-    const filteredByCategory = coffeesData.filter(
-      (coffeeItem) => coffeeItem.category === categoryType
-    );
-    setCoffees(filteredByCategory);
+    if (categoryType) {
+      const filteredByCategory = [...coffeesData].filter(
+        (coffeeItem) => coffeeItem.category === categoryType
+      );
+      setCoffees(filteredByCategory);
+    } else {
+      setCoffees(coffeesData.slice(0,6));
+    }
   }, [coffeesData, categoryType]);
 
   return (
