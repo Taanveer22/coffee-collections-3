@@ -5,7 +5,9 @@ import Footer from "./components/Footer";
 const Layout = () => {
   return (
     <>
-      <Navbar></Navbar>
+      <div className="h-24">
+        <Navbar></Navbar>
+      </div>
       {/*========== dynamic nested component========== */}
       <div className="w-11/12 mx-auto">
         <Outlet></Outlet>
