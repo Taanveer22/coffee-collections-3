@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Card from "./Card";
 import { useEffect, useState } from "react";
 
@@ -9,6 +9,9 @@ const AllCards = () => {
   // console.log(coffeesData);
   const [coffees, setCoffees] = useState([]);
   // console.log(coffees);
+  const navigate = useNavigate();
+  console.log(navigate);
+
   useEffect(() => {
     if (categoryType) {
       const filteredByCategory = [...coffeesData].filter(
@@ -16,7 +19,7 @@ const AllCards = () => {
       );
       setCoffees(filteredByCategory);
     } else {
-      setCoffees(coffeesData.slice(0,6));
+      setCoffees(coffeesData.slice(0, 6));
     }
   }, [coffeesData, categoryType]);
 
@@ -29,7 +32,12 @@ const AllCards = () => {
       </div>
       <div className="flex items-center gap-6 mt-6">
         <button className="btn btn-warning">View all here</button>
-        <button className="btn btn-warning">View in new page</button>
+        <button
+          onClick={() => navigate("/coffeesPage")}
+          className="btn btn-warning"
+        >
+          View in new page
+        </button>
       </div>
     </>
   );
