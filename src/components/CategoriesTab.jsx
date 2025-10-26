@@ -1,15 +1,15 @@
 import { NavLink } from "react-router-dom";
 
 const CategoriesTab = ({ categoryData }) => {
-  console.log(categoryData);
+  // console.log(categoryData);
   return (
     <div className="flex justify-center items-center">
-      <div role="tablist" className="tabs tabs-lift">
+      <div role="tablist" className="tabs tabs-lift mb-6">
         {categoryData.map((categoryItem) => (
           <NavLink
-            to={`/cardsCategory/${categoryItem.slug}`}
+            to={`/cardsCategory/${categoryItem.category}`}
             key={categoryItem.id}
-            className={"tab [--tab-bg:orange]"}
+            className={"tab [--tab-bg:orange] text-lg font-medium"}
           >
             {categoryItem.category}
           </NavLink>
