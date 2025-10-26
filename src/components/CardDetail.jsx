@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToLocalStorage, getFromLocalStorage } from "../utilities";
 
 const CardDetail = () => {
   const { cardId } = useParams();
@@ -17,6 +18,11 @@ const CardDetail = () => {
   }, [cardsData, cardId]);
 
   const { image, name, description } = oneCoffee;
+
+  const handleAddToFavourite = (oneCoffee) => {
+    addToLocalStorage(oneCoffee);
+    // getFromLocalStorage(oneCoffee);
+  };
   return (
     <div>
       <h1 className="text-2xl font-medium text-center">Card Id : {cardId}</h1>
@@ -26,7 +32,12 @@ const CardDetail = () => {
           <div>
             <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-6">{description}</p>
-            <button className="btn btn-primary">Add to Favourite</button>
+            <button
+              onClick={() => handleAddToFavourite(oneCoffee)}
+              className="btn btn-primary"
+            >
+              Add to Favourite
+            </button>
           </div>
         </div>
       </div>
