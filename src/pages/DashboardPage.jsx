@@ -1,7 +1,7 @@
 import Heading from "../components/Heading";
 import nutritionImage from "../assets/nutrition.png";
 import { useEffect, useState } from "react";
-import { getFromLocalStorage } from "../utilities";
+import { getFromLocalStorage, removeFromLocalStorage } from "../utilities";
 import Card from "../components/Card";
 
 const DashboardPage = () => {
@@ -11,6 +11,12 @@ const DashboardPage = () => {
     const favouriteList = getFromLocalStorage();
     setCoffees(favouriteList);
   }, []);
+
+  const handleRemoveFromFavourite = (id) => {
+    removeFromLocalStorage(id);
+    const favouriteList = getFromLocalStorage();
+    setCoffees(favouriteList);
+  };
   return (
     <div>
       <img src={nutritionImage} className="w-1/2 mx-auto h-80"></img>
@@ -22,7 +28,11 @@ const DashboardPage = () => {
       ></Heading>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {coffees.map((coffeeItem) => (
-          <Card key={coffeeItem.id} coffeeItem={coffeeItem}></Card>
+          <Card
+            key={coffeeItem.id}
+            coffeeItem={coffeeItem}
+            handleRemoveFromFavourite={handleRemoveFromFavourite}
+          ></Card>
         ))}
       </div>
     </div>

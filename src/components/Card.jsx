@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-const Card = ({ coffeeItem }) => {
+const Card = ({ coffeeItem, handleRemoveFromFavourite }) => {
   const location = useLocation();
   console.log(location);
   const { pathname } = location;
@@ -33,7 +33,10 @@ const Card = ({ coffeeItem }) => {
           </div>
         </Link>
         {pathname === "/dashboardPage" && (
-          <div className="absolute -top-5 -right-5 bg-red-500 p-3 rounded-full">
+          <div
+            onClick={() => handleRemoveFromFavourite(id)}
+            className="absolute -top-5 -right-5 bg-red-500 p-3 rounded-full"
+          >
             <FaRegTrashAlt size={20}></FaRegTrashAlt>
           </div>
         )}
