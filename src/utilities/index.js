@@ -32,7 +32,7 @@ const addToLocalStorage = (oneCoffee) => {
 
 //================== remove a coffee from local storage
 const removeFromLocalStorage = (id) => {
-  console.log(id);
+  // console.log(id);
   const favouriteList = getFromLocalStorage();
   const removedFavouriteList = favouriteList.filter((item) => item.id !== id);
   localStorage.setItem("favouriteList", JSON.stringify(removedFavouriteList));

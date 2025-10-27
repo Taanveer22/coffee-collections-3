@@ -31,7 +31,12 @@ const AllCards = () => {
         ))}
       </div>
       <div className="flex items-center gap-6 mt-6">
-        <button className="btn btn-warning">View all here</button>
+        <button
+          onClick={() => setCoffees(coffeesData)}
+          className="btn btn-warning"
+        >
+          View all here
+        </button>
         <button
           onClick={() => navigate("/coffeesPage")}
           className="btn btn-warning"
