@@ -11,7 +11,7 @@ const CardDetail = () => {
   // console.log(oneCoffee);
   // =========disabled functionality==============
   const [isFavourite, setIsFavourite] = useState(false);
-  console.log(isFavourite, setIsFavourite);
+  // console.log(isFavourite, setIsFavourite);
 
   useEffect(() => {
     const findedByCardId = cardsData.find(

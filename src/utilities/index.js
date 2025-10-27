@@ -20,7 +20,7 @@ const addToLocalStorage = (oneCoffee) => {
   const favouriteList = getFromLocalStorage();
   // console.log(favouriteList);
   const isExist = favouriteList.find((item) => item.id === oneCoffee.id);
-  console.log(isExist);
+  // console.log(isExist);
   if (isExist) {
     return toast.error("already exist");
   } else {
