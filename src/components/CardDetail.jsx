@@ -9,12 +9,21 @@ const CardDetail = () => {
   // console.log(cardsData);
   const [oneCoffee, setOneCoffee] = useState({});
   // console.log(oneCoffee);
+  // =========disabled functionality==============
+  const [isFavourite, setIsFavourite] = useState(false);
+  console.log(isFavourite, setIsFavourite);
 
   useEffect(() => {
     const findedByCardId = cardsData.find(
       (coffeeItem) => coffeeItem.id === parseInt(cardId)
     );
     setOneCoffee(findedByCardId);
+    //==================== disabled functionality=========
+    const favouriteList = getFromLocalStorage();
+    const isExist = favouriteList.find((item) => item.id === findedByCardId.id);
+    if (isExist) {
+      setIsFavourite(true);
+    }
   }, [cardsData, cardId]);
 
   const { image, name, description } = oneCoffee;
@@ -22,6 +31,8 @@ const CardDetail = () => {
   const handleAddToFavourite = (oneCoffee) => {
     addToLocalStorage(oneCoffee);
     // getFromLocalStorage(oneCoffee);
+    // ====disabled state update=======
+    setIsFavourite(true);
   };
   return (
     <div>
@@ -33,6 +44,7 @@ const CardDetail = () => {
             <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-6">{description}</p>
             <button
+              disabled={isFavourite}
               onClick={() => handleAddToFavourite(oneCoffee)}
               className="btn btn-primary"
             >
