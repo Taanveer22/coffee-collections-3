@@ -1,9 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const Card = ({ coffeeItem }) => {
+  const location = useLocation();
+  console.log(location);
+  const { pathname } = location;
+  // console.log(pathname);
+
   // console.log(coffeeItem);
   const { id, name, category, description, image, popularity, rating } =
     coffeeItem;
+
   return (
     <>
       <div className="card bg-gray-200 shadow-sm">
@@ -25,6 +32,11 @@ const Card = ({ coffeeItem }) => {
             </div>
           </div>
         </Link>
+        {pathname === "/dashboardPage" && (
+          <div className="absolute -top-5 -right-5 bg-red-500 p-3 rounded-full">
+            <FaRegTrashAlt size={20}></FaRegTrashAlt>
+          </div>
+        )}
       </div>
     </>
   );
